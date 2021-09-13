@@ -9,7 +9,7 @@
 #   new counter
 #   old votes
 
-export CARDANO_NODE_SOCKET_PATH=node.socket
+#export CARDANO_NODE_SOCKET_PATH=node.socket
 
 bodyFile=lobster-tx-body.03
 outFile=lobster-tx.03
@@ -53,7 +53,7 @@ echo "querying protocol parameters"
 
 echo
 
-./cardano-cli transaction build \
+cardano-cli transaction build \
     --alonzo-era \
     --mainnet \
     --tx-in $1 \
@@ -73,7 +73,7 @@ echo
 
 echo "saved transaction to $bodyFile"
 
-./cardano-cli transaction sign \
+cardano-cli transaction sign \
     --tx-body-file $bodyFile \
     --signing-key-file $4 \
     --mainnet \
@@ -81,7 +81,7 @@ echo "saved transaction to $bodyFile"
 
 echo "signed transaction and saved as $outFile"
 
-./cardano-cli transaction submit \
+cardano-cli transaction submit \
     --mainnet \
     --tx-file $outFile
 

@@ -1,3 +1,3 @@
 #!/bin/bash
-./cardano-cli transaction policyid \
+cardano-cli transaction policyid \
     --script-file $1
